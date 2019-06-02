@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const { execSync } = require('child_process')
-const bodyParser = require('body-parser')
 const winston = require("winston")
+const bodyParser = require('body-parser')
 const path = require('path')
 
 app.use(bodyParser.json())
@@ -14,13 +14,6 @@ app.get('/', (request, response) => {
 app.post('/deploy', (request, response) => {
   if (request.query.secret !== process.env.SECRET) {
     response.status(401).send()
-    return
-  }
-
-  if (request.body.ref !== 'refs/heads/glitch') {
-    response
-      .status(200)
-      .send('Push was not to glitch branch, so did not deploy.')
     return
   }
 
