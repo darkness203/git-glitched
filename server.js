@@ -8,7 +8,7 @@ const path = require('path')
 app.use(bodyParser.json())
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'readme.md'))
+  response.sendFile(path.join(__dirname, 'server.js'))
 })
 
 app.post('/deploy', (request, response) => {
